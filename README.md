@@ -106,7 +106,7 @@ Example request body:
 
 ```json
 {
-  'prompt': 'Who created Ruby language?'
+  "prompt": "Who created Ruby language?"
 }
 ```
 
@@ -117,22 +117,22 @@ Example response body:
 
 ```json
 {
-  'response': 'The Ruby programming language was created by Yukihiro Matsumoto in the late 1990s. He wanted to create a simple, intuitive and dynamic language that could be used for various purposes such as web development, scripting and data analysis.'
+  "response": "The Ruby programming language was created by Yukihiro Matsumoto in the late 1990s. He wanted to create a simple, intuitive and dynamic language that could be used for various purposes such as web development, scripting and data analysis."
 }
 ```
 
 ## Examples
-Here's an example using `curl` to make a completion request:
+Here"s an example using `curl` to make a completion request:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"prompt":"Who created Ruby language?"}' http://localhost:9292/completion
+curl -X POST -H "Content-Type: application/json" -d "{'prompt':'Who created Ruby language?'}" http://localhost:9292/completion
 ```
 
 The response will be:
 
 ```json
 {
-  'response': 'The Ruby programming language was created by Yukihiro Matsumoto in the late 1990s. He wanted to create a simple, intuitive and dynamic language that could be used for various purposes such as web development, scripting and data analysis.'
+  "response": "The Ruby programming language was created by Yukihiro Matsumoto in the late 1990s. He wanted to create a simple, intuitive and dynamic language that could be used for various purposes such as web development, scripting and data analysis."
 }
 ```
 
@@ -173,7 +173,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Llm Server project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mariochavez/llm_server/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Llm Server project"s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mariochavez/llm_server/blob/main/CODE_OF_CONDUCT.md).
 
 ## Conclusion
 LLM Server provides a simple way to interact with the `llama.cpp` binary and leverage the power of your configured Language Model. You can integrate this server into your applications to facilitate text completion tasks.
