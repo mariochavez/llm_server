@@ -16,7 +16,7 @@ class LLM
   end
 
   def send_prompt(input)
-    return "" if prompt.nil? || prompt.strip == ""
+    return "" if input.nil? || input.strip == ""
 
     @stdin.puts(input)
     @stdin.flush

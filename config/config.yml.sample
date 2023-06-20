@@ -6,15 +6,15 @@ models:
   "open-llama-7b":
     model: "open-llama-7B-open-instruct.ggmlv3.q4_K_M.bin"
     parameters: >
-      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 4 -ngl 1
+      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
     timeout: 30
   "llama-7b":
     model: "llama-7b.ggmlv3.q4_K_M.bin"
     parameters: >
-      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 4 -ngl 1
+      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
     timeout: 30
   "vic-13b":
     model: "ggml-vic13b-q4_0.bin"
     parameters: >
-      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 1024 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 4 -ngl 1
+      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 1024 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
     timeout: 120
