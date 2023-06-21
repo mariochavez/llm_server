@@ -12,16 +12,8 @@ class App
 
   CONFIG_FILE = "config.yml"
 
-  def self.config(root)
-    @@app = new.tap { |app| app.config(root) }
-  end
-
-  def self.current
-    @@app
-  end
-
   def self.logger
-    current.logger
+    instance.logger
   end
 
   def config(root)

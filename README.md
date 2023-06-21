@@ -64,13 +64,17 @@ models_path: "./models"
 models:
   "open-llama-7b":
     model: "open-llama-7B-open-instruct.ggmlv3.q4_K_M.bin"
+    suffix: "Assistant:"
+    reverse_prompt: "User:"
     parameters: >
-      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
+      -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
     timeout: 30
   "vic-13b":
     model: "ggml-vic13b-q4_0.bin"
+    suffix: "Assistant:"
+    reverse_prompt: "User:"
     parameters: >
-      --interactive-first -r "Usuario:" --in-prefix " " --in-suffix "Asistente:" -i -n 1024 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
+      -n 1024 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
     timeout: 120
 ```
 
@@ -78,6 +82,8 @@ The `models` key allows you to configure one or more models to be used by the se
 
 To configure a model, use a unique helpful name, ex: open-llama-7b. Then add three parameters:
 - `model`: This is the name the file for that model.
+- `suffix`: String that suffix prompt.
+- `reverse_prompt`: This halt generation at PROMPT, return control in interactive mode.
 - `parameters`: These are the parameters that are passed to `llama.cpp` process to load and run your model. It is important that model is executed as interactive to take advantage of being in memory all the time. See `llama.cpp` documentation to learn what other parameters to pass to the process.
 - `timeout`: This tells the server how much time in seconds to wait for the model to produce a response before it assumes that model did’t respond.
 

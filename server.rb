@@ -8,6 +8,7 @@ require "open3"
 require "logger"
 
 require_relative "config/app"
+require_relative "lib/errors"
 require_relative "lib/llm"
 
 class Server
@@ -15,7 +16,7 @@ class Server
   PLAIN = "text/plain"
 
   def initialize
-    App.config(__dir__)
+    App.instance.config(__dir__)
     LLM.instance
   end
 
@@ -53,8 +54,16 @@ class Server
     data = parse_body(request.body.read)
     return error_response(400, "Bad request") if data.nil?
 
-    LLM.instance.send_prompt(data.dig("prompt"))
-    result = LLM.instance.read_result
+    prompt = data.dig("prompt")
+    prompt&.strip!
+
+    result = if prompt.nil? || prompt == ""
+      ""
+    else
+      LLM.instance.send_prompt(prompt)
+      LLM.instance.read_result
+    end
+
     {response: result}
   end
 
