@@ -62,7 +62,7 @@ Place your models inside `./models` folder.
 Update the configuration file to better fit your model.
 
 ```yaml
-current_model: "vic-13b"
+current_model: "vic-13b-1.3"
 llama_bin: "../llama.cpp/main"
 models_path: "./models"
 
