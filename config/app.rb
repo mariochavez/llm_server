@@ -35,6 +35,13 @@ class App
     {}
   end
 
+  def interactive?
+    @interactive ||= begin
+      return true if !current_model.key?("interactive")
+      current_model.dig("interactive")
+    end
+  end
+
   def llama_bin
     @llama_bin ||= @config.dig("llama_bin")
   end

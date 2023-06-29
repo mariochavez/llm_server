@@ -59,12 +59,14 @@ class Server
 
     result = if prompt.nil? || prompt == ""
       ""
-    else
+    elsif App.instance.interactive?
       LLM.instance.send_prompt(prompt)
       LLM.instance.read_result
+    else
+      LLM.instance.send_prompt(prompt)
     end
 
-    {response: result}
+    {response: result, model: App.instance.current_model["model"]}
   end
 
   def success_response(data, content_type)

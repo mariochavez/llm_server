@@ -3,24 +3,24 @@ llama_bin: "../llama.cpp/main"
 models_path: "./models"
 
 models:
-  "open-llama-7b":
-    model: "open-llama-7B-open-instruct.ggmlv3.q4_K_M.bin"
-    suffix: "Assistant:"
-    reverse_prompt: "User:"
+  "orca-3b":
+    model: "orca-mini-3b.ggmlv3.q4_0.bin"
+    interactive: false
+    strip_before: "respuesta: "
     parameters: >
-      -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
-    timeout: 30
-  "llama-7b":
-    model: "llama-7b.ggmlv3.q4_K_M.bin"
-    suffix: "Assistant:"
-    reverse_prompt: "User:"
+      -n 2048 -c 2048 --top_k 40 --temp 0.1 --repeat_penalty 1.2 -t 6 -ngl 1
+    timeout: 90
+  "wiz-vic-7b":
+    model: "Wizard-Vicuna-7B-Uncensored.ggmlv3.q4_0.bin"
+    suffix: "Asistente:"
+    reverse_prompt: "Usuario:"
     parameters: >
-      -i -n 512 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
-    timeout: 30
-  "vic-13b":
-    model: "ggml-vic13b-q4_0.bin"
-    suffix: "Assistant:"
-    reverse_prompt: "User:"
+      -n 2048 -c 2048 --top_k 10000 --temp 0 --repeat_penalty 1.2 -t 4 -ngl 1
+    timeout: 90
+  "vic-13b-1.3":
+    model: "vicuna-13b-v1.3.0.ggmlv3.q4_0.bin"
+    suffix: "Asistente:"
+    reverse_prompt: "Usuario:"
     parameters: >
-      -n 1024 --top_k 10000 --temp 0.2 --repeat_penalty 1.2 -t 2 -ngl 1
-    timeout: 60
+      -n 2048 -c 2048 --top_k 10000 --temp 0 --repeat_penalty 1.2 -t 4 -ngl 1
+    timeout: 90
