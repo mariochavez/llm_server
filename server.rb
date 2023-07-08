@@ -26,6 +26,7 @@ class Server
     if request.post? && request.path == "/completion"
 
       response_data = completion_action(request)
+      return response_data if !response_data.is_a?(Hash)
 
       success_response(JSON.generate(response_data), CONTENT)
     elsif request.get? && request.path == "/heartbeat"

@@ -93,7 +93,7 @@ class LLM
       raise ConfigurationError.new("Model configuration is invalid or incomplete: #{current_model}")
     end
 
-    command = %(#{App.instance.llama_bin} -m #{App.instance.models_path}/#{model} -p '#{prompt}' #{parameters})
+    command = %(#{App.instance.llama_bin} -m #{App.instance.models_path}/#{model} -p '#{prompt.gsub(/'/, "\"")}' #{parameters})
 
     App.logger.info("Initializing LLM model #{model}")
     App.logger.info(command)
