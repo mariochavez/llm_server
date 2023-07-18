@@ -68,7 +68,7 @@ class LLM
 
   def run_interactive_model(model:, reverse_prompt:, parameters:, suffix:)
     if model.nil? || model == "" || suffix.nil? || suffix == "" || reverse_prompt.nil? || reverse_prompt == ""
-      raise ConfigurationError.new("Model configuration is invalid or incomplete: #{current_model}")
+      raise ConfigurationError.new("Model configuration is invalid or incomplete: #{App.instance.current_model}")
     end
 
     interactive_parameters = %(--interactive-first -i -r "#{reverse_prompt}" -r "###" --in-prefix " " --in-suffix "#{suffix}")
@@ -90,7 +90,7 @@ class LLM
     current_model = App.instance.current_model
 
     if model.nil? || model == ""
-      raise ConfigurationError.new("Model configuration is invalid or incomplete: #{current_model}")
+      raise ConfigurationError.new("Model configuration is invalid or incomplete: #{App.instance.current_model}")
     end
 
     command = %(#{App.instance.llama_bin} -m #{App.instance.models_path}/#{model} -p '#{prompt.gsub(/'/, "\"")}' #{parameters})
